@@ -5,6 +5,8 @@ int main(){
     char estado, codigoCarta[5], cidade[20], estado2, codigoCarta2[5], cidade2[20];
     int população, pt, população2, pt2;
     float area, pib, area2, pib2, densidadepopulacional, densidadepopulacional2, pibcapita, pibcapita2;
+    double superPoder01, superPoder02;
+    
 
     //carta 01
     //cadastro do estado cidade 01
@@ -73,12 +75,18 @@ int main(){
     printf("Digite a quantidade de pontos turisticos de %s: ", cidade2);
     scanf("%d", &pt2);
 
-        //calculo da densidade populacional carta 02
+    //calculo da densidade populacional carta 02
     densidadepopulacional2 = (float) população2/area2;
 
     //calculo do PIB per capital carta 02
     //transformando o valor do PIb em bilhoes para depois realizar o calculo do pib per capita
     pibcapita2 = (float) (pib2*1000000000)/população2;
+
+    //calculo super poder carta 01
+    superPoder01 = (float) população + area + pib + pt + pibcapita + (1/densidadepopulacional);
+
+        //calculo super poder carta 02
+    superPoder02 = (float) população2 + area2 + pib2 + pt2 + pibcapita2 + (1/densidadepopulacional2);
 
     printf("\n");
     printf("\n");
@@ -109,6 +117,24 @@ int main(){
     printf("Numero de pontos turisticos %d\n", pt2);
     printf("Densidade Populacional: %.2fhab/KM²\n", densidadepopulacional2);
     printf("PIB per Capita: %.2f reais\n", pibcapita2);
+
+    printf("\n");
+    printf("\n");
+
+    printf("COMPARAÇÃO DE CARTAS\n");
+    printf("População: Carta 01 venceu (%d)\n", população > população2);
+    printf("Área: carta 01 venceu (%d)\n", area > area2);
+    printf("PIB: carta 01 venceu (%d)\n", pib > pib2);
+    printf("pontos Turisticos: Carta 01 venceu (%d)\n", pt > pt2);
+    printf("Densidade populacional: Carta 01 venceu (%d)\n", densidadepopulacional < densidadepopulacional2);
+    printf("PIB per Capita: Carta 01 venceu (%d)\n", pibcapita > pibcapita2);
+    printf("Super Poder: Carta 01 venceu (%d)\n", superPoder01 > superPoder02);
+    
+
+
+    //printo do valor do super poder
+    //printf("O valor SP01: %.2f\n", superPoder01);
+    //printf("O valor SP02: %.2f\n", superPoder02);
 
     return 0;
 
